@@ -81,9 +81,11 @@
             color="white"
             icon
           >
-            <v-icon size="24px">
-              {{ icon }}
-            </v-icon>
+            <a :href="getIconHref(icon)" target="_blank" style="color: white">
+              <v-icon size="24px">
+                {{ icon }}
+              </v-icon>
+            </a>
           </v-btn>
         </v-card-title>
 
@@ -107,6 +109,22 @@ export default {
     ],
     icons: ["mdi-github", "mdi-google", "mdi-linkedin", "mdi-instagram"],
   }),
+  methods: {
+  getIconHref(icon) {
+    switch (icon) {
+      case 'mdi-github':
+        return 'https://github.com/emanuelprog';
+      case 'mdi-google':
+        return 'https://www.google.com/';
+      case 'mdi-linkedin':
+        return 'https://www.linkedin.com/in/emanuel-bessa-65089b233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app';
+      case 'mdi-instagram':
+        return 'https://www.instagram.com/emanuelfbessa';
+      default:
+        return '#';
+    }
+  }
+}
 };
 </script>
 
