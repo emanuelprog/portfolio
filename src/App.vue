@@ -44,26 +44,28 @@
           ABOUT
         </router-link>
         <router-link
-          to="/experiences"
+          to="/projects"
           class="mr-12 menuOpt"
           style="font-weight: bolder; font-size: 14px"
         >
-          EXPERIENCES</router-link
-        >
+          PROJECTS
+        </router-link>
       </div>
-
+      <router-link
+                to="/contact"
+                style="font-weight: bolder; font-size: 14px; text-decoration: none;"
+              >
       <v-btn outlined color="amber darken-1" class="d-none d-lg-block">
         CONTACT ME
       </v-btn>
+      </router-link>
     </v-app-bar>
 
-    <v-main style="background-color: #f5f5f5">
+    <v-main>
       <router-view></router-view>
     </v-main>
 
-    
-
-    <v-footer color="grey darken-4" padless>
+    <v-footer color="grey darken-4" >
       <v-card class="flex" color="grey darken-4">
         <v-card-title color="grey darken-4" style="color: white">
           <strong class="subheading"
@@ -100,7 +102,6 @@ export default {
     items: [
       { title: "Home", to: "/" },
       { title: "About", to: "/about" },
-      { title: "Experiences", to: "/experiences" },
       { title: "Projects", to: "/projects" },
       { title: "Contact me", to: "/contact" },
     ],

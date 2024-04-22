@@ -1,5 +1,5 @@
 <template>
-  <v-parallax dark src="/img/fundo.png" height="1000">
+  <v-parallax dark src="/img/fundo.png" height="700">
     <v-row class="mt-12">
       <v-col cols="12">
         <div class="text-center">
