@@ -1,5 +1,5 @@
 <template>
-  <v-parallax dark src="/img/fundo.png" height="700">
+  <v-container>
     <v-row class="mt-12">
       <v-col cols="12">
         <div class="text-center">
@@ -10,7 +10,7 @@
             experiences. Let's collaborate and elevate your next project!
           </p>
 
-          <div class="text-center mt-5">
+          <div class="text-center mt-12">
             <router-link to="/projects">
               <v-btn x-large color="amber darken-1" dark> PROJECTS </v-btn>
             </router-link>
@@ -18,7 +18,7 @@
         </div>
       </v-col>
     </v-row>
-  </v-parallax>
+  </v-container>
 </template>
 
 <style scoped>

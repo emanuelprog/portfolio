@@ -1,9 +1,10 @@
 <template>
-  <v-parallax dark src="/img/fundo.png" height="700">
+  <v-container>
     <v-row class="mt-12 mb-4">
       <v-col cols="12">
         <div class="text-center">
           <h2>CONTACT ME</h2>
+          <div class="underline"></div>
           <p class="smaller-paragraph">
             Feel free to contact me by submitting the form below, and I will get back to you as soon as possible.
           </p>
@@ -11,9 +12,11 @@
       </v-col>
     </v-row>
 
+    <v-divider class="mb-12"></v-divider>
+
     <v-row justify="center" class="mb-12">
       <v-col cols="12" sm="8" md="6">
-        <v-card class="pa-6">
+        <v-card class="pa-6" elevation="6">
           <form>
             <v-text-field
               v-model="name"
@@ -60,7 +63,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-parallax>
+  </v-container>
 </template>
 
 <script>
@@ -125,9 +128,14 @@ h2 {
   margin-bottom: 0.5em;
   font-size: 48px;
   font-weight: 700;
-  border-bottom: 6px solid #ffb300; /* Adiciona uma borda preta com 2 pixels de largura */
-  display: inline-block; /* Para que a borda se ajuste ao texto */
-  padding-bottom: 0.2em; /* Ajusta o espaço entre o texto e a borda */
+}
+
+.underline {
+  width: 40px; /* Defina a largura da borda */
+  height: 5px; /* Defina a altura da borda */
+  background-color: #ffb300; /* Cor da borda */
+  margin: 0 auto 20px; /* Margem para centralizar e espaçar do texto */
+  border-radius: 50px;
 }
 
 p {

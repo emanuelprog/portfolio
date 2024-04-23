@@ -90,7 +90,7 @@
         </v-card-title>
 
         <v-card-text class="py-2 text-center" style="color: white">
-          {{ new Date().getFullYear() }} — <strong>&copy; Emanuel Bessa</strong>
+          &copy; {{ new Date().getFullYear() }} — <strong> Emanuel Bessa</strong>
         </v-card-text>
       </v-card>
     </v-footer>
