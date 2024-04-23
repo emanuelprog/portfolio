@@ -31,9 +31,15 @@
         <div class="text-center">
           <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">{{ language === 'pt' ? 'Meus Conhecimentos!' : 'My Skills!' }}</h1>
           <div class="buttons">
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-angular</v-icon> Angular
-            </v-btn>
+             <v-btn
+                v-for="(icon, index) in iconList"
+                :key="index"
+                color="amber darken-1"
+                dark
+                class="ml-2 mt-2"
+              >
+                <v-icon>{{ icon.name }}</v-icon> {{icon.title}}
+              </v-btn>
             <!-- Adicione os outros botões aqui -->
           </div>
         </div>
@@ -46,6 +52,19 @@
 export default {
   props: ['language'],
   name: "AboutMe",
+  data() {
+    return {
+      iconList: [
+        { name: 'mdi-language-java', title: 'Java' },
+        { name: 'mdi-power', title: 'Spring Boot' },
+        { name: 'mdi-language-javascript', title: 'Javascript' },
+        { name: 'mdi-language-typescript', title: 'TypeScript' },
+        { name: 'mdi-angular', title: 'Angular' },
+        { name: 'mdi-alpha-z-box', title: 'ZK FRAMEWORK' },
+        { name: 'mdi-vuejs', title: 'Vue.js' }
+      ] // Lista de ícones com título
+    };
+  },
   mounted() {
     this.$nextTick(() => {
       const elements = document.querySelectorAll(".fade-in");
