@@ -65,12 +65,12 @@
       <router-view></router-view>
     </v-main>
 
-    <v-footer color="grey darken-4" >
+    <v-footer color="grey darken-4">
       <v-card class="flex" color="grey darken-4">
-        <v-card-title color="grey darken-4" style="color: white">
-          <strong class="subheading"
-            >Get connected with us on social networks!</strong
-          >
+        <v-card-title color="grey darken-4" style="color: white;">
+          <strong :class="{ 'subheading-mobile': $vuetify.breakpoint.smAndDown, 'subheading': !$vuetify.breakpoint.smAndDown }">
+            Get connected with us on social networks!
+          </strong>
 
           <v-spacer></v-spacer>
 
@@ -154,5 +154,15 @@ export default {
 
 .menuOpt.router-link-exact-active {
   color: #ffb300; /* Cor do texto quando o link está ativo */
+}
+
+.subheading {
+  font-size: 24px;
+  /* Outros estilos */
+}
+
+.subheading-mobile {
+  font-size: 16px; /* Tamanho de fonte menor para dispositivos móveis */
+  /* Outros estilos específicos para dispositivos móveis, se necessário */
 }
 </style>
