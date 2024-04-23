@@ -19,7 +19,7 @@
     <v-row class="mt-4 fade-in">
       <v-col cols="12" sm="8" md="6">
         <div class="d-flex justify-center align-center" style="height: 100%;">
-            <img src="/img/logo-about3.jpg" style="width: 330px; height: 330px; border-radius: 50%; object-fit: cover;">
+            <img src="/img/logo-about.png" style="width: 330px; height: 330px; border-radius: 50%; object-fit: cover;">
         </div>
       </v-col>
       <v-col cols="12" sm="8" md="6">
