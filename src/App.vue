@@ -19,7 +19,7 @@
 
       <v-spacer class="d-lg-none"></v-spacer>
 
-      <router-link to="/" class="mr-12 logo d-flex align-center">
+      <router-link to="/" class="ml-6 logo d-flex align-center">
         <v-avatar>
           <img src="/img/logo2.png" alt="John" />
         </v-avatar>
