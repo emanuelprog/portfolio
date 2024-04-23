@@ -2,7 +2,7 @@
   <v-container class="text-center">
     <v-row class="mt-12 mb-4" ref="projectsRow">
       <v-col cols="12">
-        <div class="text-center" ref="projectsDiv" v-if="loaded">
+        <div class="text-center fade-in" ref="projectsDiv">
           <h2 class="fade-in">{{ language === 'pt' ? 'PROJETOS' : 'PROJECTS' }}</h2>
           <div class="underline fade-in"></div>
           <p class="smaller-paragraph fade-in">
