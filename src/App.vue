@@ -53,7 +53,7 @@
       </div>
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-icon v-bind="attrs" v-on="on" size="24px">mdi-web</v-icon>
+          <v-icon v-bind="attrs" v-on="on" size="24px" color="grey darken-4">mdi-web</v-icon>
         </template>
         <v-list>
           <v-list-item
