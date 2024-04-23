@@ -17,56 +17,54 @@
     <v-divider class="mb-12"></v-divider>
 
     <v-row class="mt-4">
-      <!-- Adicionando uma margem superior menor -->
-      <!-- Primeira coluna -->
-      <v-col cols="6" class="mb-12">
-        <div class="text-center">
-          <h1 class="d-lg-none text-mobile">Get to know me!</h1>
-          <h1 class="d-none d-lg-block text-pc">Get to know me!</h1>
-          <p>
-            I'm a full-stack developer with experience in Angular, TypeScript,
-            Java, Spring Boot, Vue.js, JavaScript, HTML, and CSS. I'm passionate
-            about creating efficient and user-friendly web applications. With a
-            strong foundation in both front-end and back-end technologies, I
-            strive to deliver high-quality solutions that meet the needs of
-            clients and users alike.
-          </p>
-        </div>
-      </v-col>
-      <!-- Segunda coluna -->
-      <v-col cols="6" class="mb-12">
-        <div class="text-center">
-          <h1 class="d-lg-none text-mobile">My Skills!</h1>
-          <h1 class="d-none d-lg-block text-pc">My Skills!</h1>
-          <div class="buttons">
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-angular</v-icon> Angular
-            </v-btn>
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-language-typescript</v-icon> TypeScript
-            </v-btn>
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-language-java</v-icon> Java
-            </v-btn>
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-power</v-icon> Spring Boot
-            </v-btn>
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-vuejs</v-icon> VueJs
-            </v-btn>
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-alpha-z-box-outline</v-icon> ZK Framework
-            </v-btn>
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-language-html5</v-icon> HTML
-            </v-btn>
-            <v-btn color="amber darken-1" dark class="ml-2 mt-2"
-              ><v-icon>mdi-language-css3</v-icon> CSS
-            </v-btn>
-          </div>
-        </div>
-      </v-col>
-    </v-row>
+  <!-- Adicionando uma margem superior menor -->
+  <!-- Primeira coluna -->
+  <v-col cols="6" class="mb-12">
+    <div class="text-center">
+      <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">Get to know me!</h1>
+      <p>
+        I'm a full-stack developer with experience in Angular, TypeScript,
+        Java, Spring Boot, Vue.js, JavaScript, HTML, and CSS. I'm passionate
+        about creating efficient and user-friendly web applications. With a
+        strong foundation in both front-end and back-end technologies, I
+        strive to deliver high-quality solutions that meet the needs of
+        clients and users alike.
+      </p>
+    </div>
+  </v-col>
+  <!-- Segunda coluna -->
+  <v-col cols="6" class="mb-12">
+    <div class="text-center">
+      <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">My Skills!</h1>
+      <div class="buttons">
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-angular</v-icon> Angular
+        </v-btn>
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-language-typescript</v-icon> TypeScript
+        </v-btn>
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-language-java</v-icon> Java
+        </v-btn>
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-power</v-icon> Spring Boot
+        </v-btn>
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-vuejs</v-icon> VueJs
+        </v-btn>
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-alpha-z-box-outline</v-icon> ZK Framework
+        </v-btn>
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-language-html5</v-icon> HTML
+        </v-btn>
+        <v-btn color="amber darken-1" dark class="ml-2 mt-2"
+          ><v-icon>mdi-language-css3</v-icon> CSS
+        </v-btn>
+      </div>
+    </div>
+  </v-col>
+</v-row>
   </v-container>
 </template>
 
