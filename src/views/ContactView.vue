@@ -20,8 +20,18 @@
 
     <v-divider class="mb-12 fade-in"></v-divider>
 
-    <v-row justify="center" class="mb-12 fade-in">
-      <v-col cols="12" sm="8" md="6">
+    <v-row class="mb-4 fade-in">
+      <v-col cols="12" sm="8" md="6" class="text-center">
+        <div class="d-flex justify-center align-center" style="height: 100%;">
+          <div style="background-color: #212121; padding: 5px; border-radius: 50%;">
+            <img src="/img/world.svg" style="width: 330px; height: 330px; border-radius: 50%; object-fit: cover;">
+          </div>
+        </div>
+        <div class="mb-5">
+          <v-icon v-bind="attrs" v-on="on" size="24px" color="grey darken-4">mdi-crosshairs-gps</v-icon><span style="font-weight: bolder; margin-left: 5px">{{ language === "pt" ? "Campo Grande MS - Brasil" : "Campo Grande MS - Brazil" }}</span>
+        </div>
+      </v-col>
+      <v-col cols="12" sm="8" md="6" class="mt-5">
         <v-card class="pa-6" elevation="6">
           <form>
             <v-text-field

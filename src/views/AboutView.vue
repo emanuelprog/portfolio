@@ -15,19 +15,27 @@
 
     <v-divider class="mb-12 fade-in"></v-divider>
 
+
     <v-row class="mt-4 fade-in">
-      <!-- Adicionando uma margem superior menor -->
-      <!-- Primeira coluna -->
-      <v-col cols="6" class="mb-12">
+      <v-col cols="12" sm="8" md="6">
+        <div class="d-flex justify-center align-center" style="height: 100%;">
+            <img src="/img/logo-about3.jpg" style="width: 330px; height: 330px; border-radius: 50%; object-fit: cover;">
+        </div>
+      </v-col>
+      <v-col cols="12" sm="8" md="6">
         <div class="text-center">
           <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">{{ language === 'pt' ? 'Me conheça!' : 'Get to know me!' }}</h1>
           <p>
-            {{ language === 'pt' ? 'Sou um desenvolvedor full-stack com experiência em Angular, TypeScript, Java, Spring Boot, Vue.js, JavaScript, HTML e CSS. Sou apaixonado por criar aplicações web eficientes e fáceis de usar. Com uma base sólida em tecnologias front-end e back-end, me esforço para fornecer soluções de alta qualidade que atendam às necessidades de clientes e usuários.' : "I'm a full-stack developer with experience in Angular, TypeScript, Java, Spring Boot, Vue.js, JavaScript, HTML, and CSS. I'm passionate about creating efficient and user-friendly web applications. With a strong foundation in both front-end and back-end technologies, I strive to deliver high-quality solutions that meet the needs of clients and users alike." }}
+            {{ language === 'pt' ? 'Emanuel Fernandes Bessa, 23 anos, é um apaixonado programador nascido em Boston, EUA, mas criado em Minas Gerais e posteriormente mudou-se para Campo Grande. Sua determinação em revolucionar a área da programação com suas ideias criativas é evidente em seu trabalho. Ele busca constantemente maneiras de inovar e aprimorar suas habilidades, demonstrando uma sede insaciável de aprendizado e um espírito colaborativo. Sua ambição e entusiasmo tornam-no uma presença inspiradora na comunidade de desenvolvimento de software.' : "Emanuel Fernandes Bessa, 23 years old, is a passionate programmer born in Boston, USA, but raised in Minas Gerais and later moved to Campo Grande. His determination to revolutionize the field of programming with his creative ideas is evident in his work. He constantly seeks ways to innovate and improve his skills, demonstrating an insatiable thirst for learning and a collaborative spirit. His ambition and enthusiasm make him an inspiring presence in the software development community." }}
           </p>
         </div>
       </v-col>
-      <!-- Segunda coluna -->
-      <v-col cols="6" class="mb-12">
+    </v-row>
+
+    <v-divider class="mt-12 fade-in"></v-divider>
+
+    <v-row class="mt-4 fade-in">
+      <v-col cols="12" class="mb-12">
         <div class="text-center">
           <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">{{ language === 'pt' ? 'Meus Conhecimentos!' : 'My Skills!' }}</h1>
           <div class="buttons">
@@ -40,7 +48,6 @@
               >
                 <v-icon>{{ icon.name }}</v-icon> {{icon.title}}
               </v-btn>
-            <!-- Adicione os outros botões aqui -->
           </div>
         </div>
       </v-col>
