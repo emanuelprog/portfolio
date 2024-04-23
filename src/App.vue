@@ -153,7 +153,18 @@ export default {
   }),
   methods: {
     getIconHref(icon) {
-      // Implementação do método getIconHref...
+       switch (icon) {
+        case "mdi-github":
+          return "https://github.com/emanuelprog";
+        case "mdi-google":
+          return "https://www.google.com/";
+        case "mdi-linkedin":
+          return "https://www.linkedin.com/in/emanuel-bessa-65089b233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app";
+        case "mdi-instagram":
+          return "https://www.instagram.com/emanuelfbessa";
+        default:
+          return "#";
+       }
     },
     onLanguageChanged(novoIdioma) {
       this.language = novoIdioma; // Correção aqui
