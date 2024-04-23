@@ -3,10 +3,16 @@
     <v-row class="mt-12 mb-4">
       <v-col cols="12">
         <div class="text-center">
-          <h2 class="fade-in">CONTACT ME</h2>
+          <h2 class="fade-in">
+            {{ language === "pt" ? "CONTATO" : "CONTACT ME" }}
+          </h2>
           <div class="underline fade-in"></div>
           <p class="smaller-paragraph fade-in">
-            Feel free to contact me by submitting the form below, and I will get back to you as soon as possible.
+            {{
+              language === "pt"
+                ? "Sinta-se à vontade para entrar em contato comigo enviando o formulário abaixo e entrarei em contato com você o mais breve possível."
+                : "Feel free to contact me by submitting the form below, and I will get back to you as soon as possible."
+            }}
           </p>
         </div>
       </v-col>
@@ -22,7 +28,7 @@
               v-model="name"
               :error-messages="nameErrors"
               :counter="10"
-              label="Enter Your Name"
+              :label="language === 'pt' ? 'Digite seu nome' : 'Enter Your Name'"
               required
               @input="$v.name.$touch()"
               @blur="$v.name.$touch()"
@@ -30,7 +36,9 @@
             <v-text-field
               v-model="email"
               :error-messages="emailErrors"
-              label="Enter Your E-mail"
+              :label="
+                language === 'pt' ? 'Digite seu e-mail' : 'Enter Your E-mail'
+              "
               required
               @input="$v.email.$touch()"
               @blur="$v.email.$touch()"
@@ -39,7 +47,9 @@
             <v-text-field
               v-model="message"
               :error-messages="messageErrors"
-              label="Enter Your Message"
+              :label="
+                language === 'pt' ? 'Digite sua mensagem' : 'Enter Your Message'
+              "
               required
               @input="$v.message.$touch()"
               @blur="$v.message.$touch()"
@@ -48,15 +58,11 @@
             ></v-text-field>
 
             <v-row justify="center">
-              <v-btn
-                class="mr-4"
-                @click="submit"
-                color="amber darken-1"
-              >
-                Submit
+              <v-btn class="mr-4" @click="submit" color="amber darken-1">
+                {{ language === "pt" ? "ENVIAR" : "SUBMIT" }}
               </v-btn>
               <v-btn @click="clear" color="red">
-                Clear
+                {{ language === "pt" ? "LIMPAR" : "CLEAR" }}
               </v-btn>
             </v-row>
           </form>
@@ -67,65 +73,94 @@
 </template>
 
 <script>
-import { validationMixin } from 'vuelidate'
-import { required, maxLength, email } from 'vuelidate/lib/validators'
+import { validationMixin } from "vuelidate";
+import { required, maxLength, email } from "vuelidate/lib/validators";
 
 export default {
+  props: ["language"],
   mixins: [validationMixin],
 
   validations: {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
-    message: { required } // Corrigido para required
+    message: { required }, // Corrigido para required
   },
 
   data: () => ({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   }),
 
   computed: {
-    nameErrors () {
-      const errors = []
-      if (!this.$v.name.$dirty) return errors
-      !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
-      !this.$v.name.required && errors.push('Name is required.')
-      return errors
+    nameErrors() {
+      const errors = [];
+      if (!this.$v.name.$dirty) return errors;
+      if (!this.$v.name.maxLength) {
+        errors.push(
+          this.language === "pt"
+            ? "O nome deve ter no máximo 10 caracteres."
+            : "Name must be at most 10 characters long"
+        );
+      }
+      if (!this.$v.name.required) {
+        errors.push(
+          this.language === "pt" ? "O nome é obrigatório." : "Name is required."
+        );
+      }
+      return errors;
     },
-    messageErrors () {
-      const errors = []
-      if (!this.$v.message.$dirty) return errors
-      !this.$v.message.required && errors.push('Message is required.')
-      return errors
+    messageErrors() {
+      const errors = [];
+      if (!this.$v.message.$dirty) return errors;
+      if (!this.$v.message.required) {
+        errors.push(
+          this.language === "pt"
+            ? "A mensagem é obrigatória."
+            : "Message is required."
+        );
+      }
+      return errors;
     },
-    emailErrors () {
-      const errors = []
-      if (!this.$v.email.$dirty) return errors
-      !this.$v.email.email && errors.push('Must be valid e-mail')
-      !this.$v.email.required && errors.push('E-mail is required')
-      return errors
+    emailErrors() {
+      const errors = [];
+      if (!this.$v.email.$dirty) return errors;
+      if (!this.$v.email.email) {
+        errors.push(
+          this.language === "pt"
+            ? "Deve ser um e-mail válido."
+            : "Must be valid e-mail"
+        );
+      }
+      if (!this.$v.email.required) {
+        errors.push(
+          this.language === "pt"
+            ? "O e-mail é obrigatório."
+            : "E-mail is required"
+        );
+      }
+      return errors;
     },
   },
 
   methods: {
-    submit () {
-      this.$v.$touch()
+    submit() {
+      this.$v.$touch();
     },
-    clear () {
-      this.$v.$reset()
-      this.name = ''
-      this.email = ''
-      this.message = ''
+    clear() {
+      this.$v.$reset();
+      this.name = "";
+      this.email = "";
+      this.message = "";
     },
     mounted() {
-    // Adiciona a classe 'active' após um pequeno atraso para acionar a animação de fade-in
-    setTimeout(() => {
-      document.querySelector('.fade-in-form').classList.add('active');
-    }, 100);
+      // Adiciona a classe 'active' após um pequeno atraso para acionar a animação de fade-in
+      setTimeout(() => {
+        document.querySelector(".fade-in-form").classList.add("active");
+      }, 100);
+    },
   },
-  },
-}
+};
 </script>
 
 <style scoped>

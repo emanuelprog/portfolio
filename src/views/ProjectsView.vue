@@ -3,10 +3,10 @@
     <v-row class="mt-12 mb-4" ref="projectsRow">
       <v-col cols="12">
         <div class="text-center" ref="projectsDiv" v-if="loaded">
-          <h2 class="fade-in">PROJECTS</h2>
+          <h2 class="fade-in">{{ language === 'pt' ? 'PROJETOS' : 'PROJECTS' }}</h2>
           <div class="underline fade-in"></div>
           <p class="smaller-paragraph fade-in">
-            Here you will find some of the personal and clients projects that I created with each project containing its own case study
+            {{ language === 'pt' ? 'Aqui você encontrará alguns dos projetos pessoais e de clientes que criei, cada projeto contendo seus próprios detalhes' : 'Here you will find some of the personal and clients projects that I created with each project containing its own case study' }}
           </p>
         </div>
       </v-col>
@@ -28,13 +28,13 @@
         <!-- Segunda coluna -->
         <v-col cols="12" sm="6" style="text-align: left">
           <h1 class="fade-in">Portfólio</h1>
-          <div class="fade-in">Get to know my portfolio! Developed using Vue.js with Vuetify, this project marks a significant milestone in my journey. Version 1.0 showcases my commitment to blending stylish design with powerful functionality. Dive into my work and see firsthand how I transform concepts into reality in the digital realm.</div>
+          <div class="fade-in">{{ language === 'pt' ? 'Conheça meu portfólio! Desenvolvido usando Vue.js com Vuetify, este projeto é um marco significativo em minha jornada. A versão 1.0 demonstra meu compromisso em combinar design elegante com funcionalidade poderosa. Mergulhe no meu trabalho e veja em primeira mão como transformo conceitos em realidade no mundo digital.' : 'Get to know my portfolio! Developed using Vue.js with Vuetify, this project marks a significant milestone in my journey. Version 1.0 showcases my commitment to blending stylish design with powerful functionality. Dive into my work and see firsthand how I transform concepts into reality in the digital realm.' }}</div>
           <div class="my-2 fade-in">
             <a href="https://portfolio-swart-one-23.vercel.app/"><v-btn
               color="amber darken-1"
               dark
             >
-              Case Study
+              {{ language === 'pt' ? 'Ver mais' : 'Case Study' }}
             </v-btn></a>
           </div>
         </v-col>
@@ -53,13 +53,13 @@
         <!-- Quarta coluna -->
         <v-col cols="12" sm="6" style="text-align: left">
           <h1 class="fade-in">Portal do Professor</h1>
-          <div class="fade-in">Explore my "Portal do Professor"! Powered by Angular and Java, this project seamlessly integrates with RESTful APIs, embodying a harmonious blend of frontend sophistication and backend robustness. Dive in to witness how I bridge the gap between elegant design and efficient data handling, empowering educators with intuitive digital tools.</div>
+          <div class="fade-in">{{ language === 'pt' ? 'Explore o meu "Portal do Professor"! Desenvolvido em Angular e Java, este projeto integra-se perfeitamente com APIs RESTful, incorporando uma mistura harmoniosa de sofisticação de front-end e robustez de back-end. Mergulhe para testemunhar como eu preencho a lacuna entre o design elegante e o gerenciamento eficiente de dados, capacitando educadores com ferramentas digitais intuitivas.' : 'Explore my "Portal do Professor"! Powered by Angular and Java, this project seamlessly integrates with RESTful APIs, embodying a harmonious blend of frontend sophistication and backend robustness. Dive in to witness how I bridge the gap between elegant design and efficient data handling, empowering educators with intuitive digital tools.' }}</div>
           <div class="my-2 fade-in">
             <a href="https://portalreme.campogrande.ms.gov.br/home"><v-btn
               color="amber darken-1"
               dark
             >
-              Case Study
+              {{ language === 'pt' ? 'Ver mais' : 'Case Study' }}
             </v-btn></a>
           </div>
         </v-col>
@@ -70,6 +70,7 @@
 
 <script>
 export default {
+ props: ['language'],
   data() {
     return {
       loaded: false,

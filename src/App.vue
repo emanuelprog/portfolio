@@ -4,7 +4,7 @@
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>{{ language === 'pt' ? item.titleBR : item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -34,42 +34,65 @@
           class="mr-12 menuOpt"
           style="font-weight: bolder; font-size: 14px"
         >
-          HOME
+          {{ language === 'pt' ? 'INÍCIO' : 'HOME' }}
         </router-link>
         <router-link
           to="/about"
           class="mr-12 menuOpt"
           style="font-weight: bolder; font-size: 14px"
         >
-          ABOUT
+          {{ language === 'pt' ? 'SOBRE' : 'ABOUT' }}
         </router-link>
         <router-link
           to="/projects"
           class="mr-12 menuOpt"
           style="font-weight: bolder; font-size: 14px"
         >
-          PROJECTS
+          {{ language === 'pt' ? 'PROJETOS' : 'PROJECTS' }}
         </router-link>
       </div>
+      <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-icon v-bind="attrs" v-on="on" size="24px">mdi-web</v-icon>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="(flag, index) in flags"
+            :key="index"
+            @click="onLanguageChanged(flag.language)"
+          >
+            <img :src="flag.src" width="18px" style="cursor: pointer" />
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <router-link
-                to="/contact"
-                style="font-weight: bolder; font-size: 14px; text-decoration: none;"
-              >
-      <v-btn outlined color="amber darken-1" class="d-none d-lg-block">
-        CONTACT ME
-      </v-btn>
+        to="/contact"
+        class="ml-5"
+        style="font-weight: bolder; font-size: 14px; text-decoration: none"
+      >
+        <v-btn outlined color="amber darken-1" class="d-none d-lg-block">
+           {{ language === 'pt' ? 'CONTATO' : 'CONTACT ME' }}
+        </v-btn>
       </router-link>
     </v-app-bar>
 
     <v-main>
-      <router-view></router-view>
+      <router-view :language="language"></router-view>
     </v-main>
 
     <v-footer color="grey darken-4">
       <v-card class="flex" color="grey darken-4">
-        <v-card-title color="grey darken-4" style="color: white;">
-          <strong :class="{ 'subheading-mobile': $vuetify.breakpoint.smAndDown, 'subheading': !$vuetify.breakpoint.smAndDown }">
-            Get connected with us on social networks!
+        <v-card-title
+          color="grey darken-4"
+          style="color: white; justify-content: center"
+        >
+          <strong :style="{ fontSize: language === 'pt' ? '20px' : '18px' }"
+            :class="{
+              'subheading-mobile': $vuetify.breakpoint.smAndDown,
+              subheading: !$vuetify.breakpoint.smAndDown,
+            }"
+          >
+            {{ language === 'pt' ? 'Conecte-se comigo nas redes sociais!' : 'Get connected with me on social networks!' }}
           </strong>
 
           <v-spacer></v-spacer>
@@ -90,7 +113,8 @@
         </v-card-title>
 
         <v-card-text class="py-2 text-center" style="color: white">
-          &copy; {{ new Date().getFullYear() }} — <strong> Emanuel Bessa</strong>
+          &copy; {{ new Date().getFullYear() }} —
+          <strong> Emanuel Bessa</strong>
         </v-card-text>
       </v-card>
     </v-footer>
@@ -98,41 +122,54 @@
 </template>
 
 <script>
+import { eventBus } from '@/event-bus.js';
 export default {
+  created() {
+    // Assine o evento de mudança de idioma
+    eventBus.$on('language-changed', this.onLanguageChanged);
+  },
+  destroyed() {
+    // Lembre-se de cancelar a inscrição ao destruir o componente
+    eventBus.$off('language-changed', this.onLanguageChanged);
+  },
   data: () => ({
     drawer: false,
     items: [
-      { title: "Home", to: "/" },
-      { title: "About", to: "/about" },
-      { title: "Projects", to: "/projects" },
-      { title: "Contact me", to: "/contact" },
+      { title: "Home", titleBR: "Início", to: "/" },
+      { title: "About", titleBR: "Sobre", to: "/about" },
+      { title: "Projects", titleBR: "Projetos",  to: "/projects" },
+      { title: "Contact me", titleBR: "Contato", to: "/contact" },
+    ],
+    flags: [
+      {
+        src: "/img/brazil-flag-icon.png", language: 'pt'
+      },
+      {
+        src: "/img/united-states-flag-icon.png", language: 'en'
+      },
     ],
     icons: ["mdi-github", "mdi-google", "mdi-linkedin", "mdi-instagram"],
+    language: 'en', // Adicione a variável de idioma aqui
   }),
   methods: {
-  getIconHref(icon) {
-    switch (icon) {
-      case 'mdi-github':
-        return 'https://github.com/emanuelprog';
-      case 'mdi-google':
-        return 'https://www.google.com/';
-      case 'mdi-linkedin':
-        return 'https://www.linkedin.com/in/emanuel-bessa-65089b233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app';
-      case 'mdi-instagram':
-        return 'https://www.instagram.com/emanuelfbessa';
-      default:
-        return '#';
+    getIconHref(icon) {
+      // Implementação do método getIconHref...
+    },
+    onLanguageChanged(novoIdioma) {
+      this.language = novoIdioma; // Correção aqui
     }
-  }
-}
+  },
 };
 </script>
 
 <style scoped>
-
 .background {
-   background-color: #f5f5f5; /* Fallback for browsers that do not support gradients */
-    background-image: linear-gradient(to bottom, #ffffff, #cccccc); /* Gradient from white to gray */
+  background-color: #f5f5f5;
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    #cccccc
+  ); /* Gradient from white to gray */
 }
 
 .logo {
@@ -168,7 +205,6 @@ export default {
 }
 
 .subheading-mobile {
-  font-size: 16px; /* Tamanho de fonte menor para dispositivos móveis */
-  /* Outros estilos específicos para dispositivos móveis, se necessário */
+  font-size: 18px;
 }
 </style>

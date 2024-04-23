@@ -4,11 +4,10 @@
       <!-- Adicionando uma margem inferior menor -->
       <v-col cols="12">
         <div class="text-center">
-          <h2>ABOUT ME</h2>
+          <h2>{{ language === 'pt' ? 'SOBRE MIM' : 'ABOUT ME' }}</h2>
           <div class="underline"></div>
           <p class="smaller-paragraph">
-            Here you will find more information about me, what I do, and my
-            current skills mostly in terms of programming and technology
+            {{ language === 'pt' ? 'Aqui você encontrará mais informações sobre mim, o que faço e minhas habilidades atuais principalmente em termos de programação e tecnologia' : 'Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology' }}
           </p>
         </div>
       </v-col>
@@ -21,21 +20,16 @@
       <!-- Primeira coluna -->
       <v-col cols="6" class="mb-12">
         <div class="text-center">
-          <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">Get to know me!</h1>
+          <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">{{ language === 'pt' ? 'Me conheça!' : 'Get to know me!' }}</h1>
           <p>
-            I'm a full-stack developer with experience in Angular, TypeScript,
-            Java, Spring Boot, Vue.js, JavaScript, HTML, and CSS. I'm passionate
-            about creating efficient and user-friendly web applications. With a
-            strong foundation in both front-end and back-end technologies, I
-            strive to deliver high-quality solutions that meet the needs of
-            clients and users alike.
+            {{ language === 'pt' ? 'Sou um desenvolvedor full-stack com experiência em Angular, TypeScript, Java, Spring Boot, Vue.js, JavaScript, HTML e CSS. Sou apaixonado por criar aplicações web eficientes e fáceis de usar. Com uma base sólida em tecnologias front-end e back-end, me esforço para fornecer soluções de alta qualidade que atendam às necessidades de clientes e usuários.' : "I'm a full-stack developer with experience in Angular, TypeScript, Java, Spring Boot, Vue.js, JavaScript, HTML, and CSS. I'm passionate about creating efficient and user-friendly web applications. With a strong foundation in both front-end and back-end technologies, I strive to deliver high-quality solutions that meet the needs of clients and users alike." }}
           </p>
         </div>
       </v-col>
       <!-- Segunda coluna -->
       <v-col cols="6" class="mb-12">
         <div class="text-center">
-          <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">My Skills!</h1>
+          <h1 :class="{ 'text-mobile': $vuetify.breakpoint.smAndDown, 'text-pc': !$vuetify.breakpoint.smAndDown }">{{ language === 'pt' ? 'Meus Conhecimentos!' : 'My Skills!' }}</h1>
           <div class="buttons">
             <v-btn color="amber darken-1" dark class="ml-2 mt-2"
               ><v-icon>mdi-angular</v-icon> Angular
@@ -50,6 +44,7 @@
 
 <script>
 export default {
+  props: ['language'],
   name: "AboutMe",
   mounted() {
     this.$nextTick(() => {
