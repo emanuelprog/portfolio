@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="mt-2 mb-4">
+    <v-row class="mt-12 mb-4">
       <v-col cols="12">
         <div class="text-center">
           <h2 class="fade-in">
