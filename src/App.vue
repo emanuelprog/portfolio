@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="inspire" class="background">
     <v-navigation-drawer v-model="drawer" app>
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
@@ -129,6 +129,12 @@ export default {
 </script>
 
 <style scoped>
+
+.background {
+   background-color: #f5f5f5; /* Fallback for browsers that do not support gradients */
+    background-image: linear-gradient(to bottom, #ffffff, #cccccc); /* Gradient from white to gray */
+}
+
 .logo {
   display: flex;
   margin-right: 40px;

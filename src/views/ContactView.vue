@@ -3,18 +3,18 @@
     <v-row class="mt-12 mb-4">
       <v-col cols="12">
         <div class="text-center">
-          <h2>CONTACT ME</h2>
-          <div class="underline"></div>
-          <p class="smaller-paragraph">
+          <h2 class="fade-in">CONTACT ME</h2>
+          <div class="underline fade-in"></div>
+          <p class="smaller-paragraph fade-in">
             Feel free to contact me by submitting the form below, and I will get back to you as soon as possible.
           </p>
         </div>
       </v-col>
     </v-row>
 
-    <v-divider class="mb-12"></v-divider>
+    <v-divider class="mb-12 fade-in"></v-divider>
 
-    <v-row justify="center" class="mb-12">
+    <v-row justify="center" class="mb-12 fade-in">
       <v-col cols="12" sm="8" md="6">
         <v-card class="pa-6" elevation="6">
           <form>
@@ -118,11 +118,30 @@ export default {
       this.email = ''
       this.message = ''
     },
+    mounted() {
+    // Adiciona a classe 'active' após um pequeno atraso para acionar a animação de fade-in
+    setTimeout(() => {
+      document.querySelector('.fade-in-form').classList.add('active');
+    }, 100);
+  },
   },
 }
 </script>
 
 <style scoped>
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards; /* forwards mantém o estado final da animação */
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 h2 {
   color: black;
   margin-bottom: 0.5em;
