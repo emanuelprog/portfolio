@@ -67,7 +67,6 @@ export default {
         { name: 'mdi-language-javascript', title: 'Javascript' },
         { name: 'mdi-language-typescript', title: 'TypeScript' },
         { name: 'mdi-angular', title: 'Angular' },
-        { name: 'mdi-alpha-z-box', title: 'ZK FRAMEWORK' },
         { name: 'mdi-vuejs', title: 'Vue.js' }
       ] // Lista de ícones com título
     };

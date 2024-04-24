@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="mb-5">
-          <v-icon v-bind="attrs" v-on="on" size="24px" color="grey darken-4">mdi-crosshairs-gps</v-icon><span style="font-weight: bolder; margin-left: 5px">{{ language === "pt" ? "Campo Grande MS - Brasil" : "Campo Grande MS - Brazil" }}</span>
+          <v-icon size="24px" color="grey darken-4">mdi-crosshairs-gps</v-icon><span style="font-weight: bolder; margin-left: 5px">{{ language === "pt" ? "Campo Grande MS - Brasil" : "Campo Grande MS - Brazil" }}</span>
         </div>
       </v-col>
       <v-col cols="12" sm="8" md="6" class="mt-5">

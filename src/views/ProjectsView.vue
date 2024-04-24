@@ -36,6 +36,11 @@
             >
               {{ language === 'pt' ? 'Ver mais' : 'Case Study' }}
             </v-btn></a>
+            <a class="ml-5" href="https://github.com/emanuelprog/portfolio">
+            <v-icon dark size="28px" color="black" :title="language === 'pt' ? 'Abrir código' : 'Open source'">
+              mdi-github
+            </v-icon>
+          </a>
           </div>
         </v-col>
       </v-row>
@@ -61,6 +66,11 @@
             >
               {{ language === 'pt' ? 'Ver mais' : 'Case Study' }}
             </v-btn></a>
+            <a class="ml-5" href="https://github.com/emanuelprog">
+            <v-icon dark size="28px" color="black" :title="language === 'pt' ? 'Abrir código' : 'Open source'">
+              mdi-github
+            </v-icon>
+          </a>
           </div>
         </v-col>
       </v-row>
