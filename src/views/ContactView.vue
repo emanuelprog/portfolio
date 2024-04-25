@@ -93,7 +93,7 @@ export default {
   validations: {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
-    message: { required }, // Corrigido para required
+    message: { required },
   },
 
   data: () => ({
@@ -164,7 +164,6 @@ export default {
       this.message = "";
     },
     mounted() {
-      // Adiciona a classe 'active' após um pequeno atraso para acionar a animação de fade-in
       setTimeout(() => {
         document.querySelector(".fade-in-form").classList.add("active");
       }, 100);
@@ -175,7 +174,7 @@ export default {
 
 <style scoped>
 .fade-in {
-  animation: fadeIn 1s ease-in-out forwards; /* forwards mantém o estado final da animação */
+  animation: fadeIn 1s ease-in-out forwards;
   opacity: 0;
 }
 
@@ -195,10 +194,10 @@ h2 {
 }
 
 .underline {
-  width: 40px; /* Defina a largura da borda */
-  height: 5px; /* Defina a altura da borda */
-  background-color: #ffb300; /* Cor da borda */
-  margin: 0 auto 20px; /* Margem para centralizar e espaçar do texto */
+  width: 40px;
+  height: 5px;
+  background-color: #ffb300;
+  margin: 0 auto 20px;
   border-radius: 50px;
 }
 
@@ -207,8 +206,8 @@ p {
 }
 
 .smaller-paragraph {
-  font-size: 1.1em; /* Define um tamanho de fonte menor para o parágrafo */
-  max-width: 800px; /* Define uma largura máxima para o parágrafo */
-  margin: 0 auto; /* Centraliza o parágrafo horizontalmente */
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto;
 }
 </style>

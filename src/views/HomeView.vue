@@ -30,14 +30,14 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loaded = true;
-    }, 500); // Tempo para a animação começar após o carregamento da página
+    }, 500);
   },
 };
 </script>
 
 <style scoped>
 .fade-in {
-  animation: fadeIn 1s ease-in-out forwards; /* forwards mantém o estado final da animação */
+  animation: fadeIn 1s ease-in-out forwards;
   opacity: 0;
 }
 
@@ -62,8 +62,8 @@ p {
 }
 
 .smaller-paragraph {
-  font-size: 0.9em; /* Define um tamanho de fonte menor para o parágrafo */
-  max-width: 600px; /* Define uma largura máxima para o parágrafo */
-  margin: 0 auto; /* Centraliza o parágrafo horizontalmente */
+  font-size: 0.9em;
+  max-width: 600px;
+  margin: 0 auto;
 }
 </style>

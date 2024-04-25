@@ -125,11 +125,9 @@
 import { eventBus } from '@/event-bus.js';
 export default {
   created() {
-    // Assine o evento de mudança de idioma
     eventBus.$on('language-changed', this.onLanguageChanged);
   },
   destroyed() {
-    // Lembre-se de cancelar a inscrição ao destruir o componente
     eventBus.$off('language-changed', this.onLanguageChanged);
   },
   data: () => ({
@@ -149,7 +147,7 @@ export default {
       },
     ],
     icons: ["mdi-github", "mdi-google", "mdi-linkedin", "mdi-instagram"],
-    language: 'en', // Adicione a variável de idioma aqui
+    language: 'en',
   }),
   methods: {
     getIconHref(icon) {
@@ -167,7 +165,7 @@ export default {
        }
     },
     onLanguageChanged(novoIdioma) {
-      this.language = novoIdioma; // Correção aqui
+      this.language = novoIdioma;
     }
   },
 };
@@ -180,7 +178,7 @@ export default {
     to bottom,
     #ffffff,
     #cccccc
-  ); /* Gradient from white to gray */
+  );
 }
 
 .logo {
@@ -190,7 +188,7 @@ export default {
 }
 
 .logo-texto {
-  font-size: 16px; /* Tamanho da fonte do texto */
+  font-size: 16px;
   font-weight: 900;
   color: #212121;
 }
@@ -207,12 +205,11 @@ export default {
 }
 
 .menuOpt.router-link-exact-active {
-  color: #ffb300; /* Cor do texto quando o link está ativo */
+  color: #ffb300;
 }
 
 .subheading {
   font-size: 24px;
-  /* Outros estilos */
 }
 
 .subheading-mobile {

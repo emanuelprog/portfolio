@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <v-row class="mt-12 mb-4 fade-in">
-      <!-- Adicionando uma margem inferior menor -->
       <v-col cols="12">
         <div class="text-center">
           <h2>{{ language === 'pt' ? 'SOBRE MIM' : 'ABOUT ME' }}</h2>
@@ -68,7 +67,7 @@ export default {
         { name: 'mdi-language-typescript', title: 'TypeScript' },
         { name: 'mdi-angular', title: 'Angular' },
         { name: 'mdi-vuejs', title: 'Vue.js' }
-      ] // Lista de ícones com título
+      ]
     };
   },
   mounted() {
@@ -105,10 +104,10 @@ h2 {
 }
 
 .underline {
-  width: 40px; /* Defina a largura da borda */
-  height: 5px; /* Defina a altura da borda */
-  background-color: #ffb300; /* Cor da borda */
-  margin: 0 auto 20px; /* Margem para centralizar e espaçar do texto */
+  width: 40px;
+  height: 5px;
+  background-color: #ffb300;
+  margin: 0 auto 20px;
   border-radius: 50px;
 }
 
@@ -127,8 +126,8 @@ p {
 }
 
 .smaller-paragraph {
-  font-size: 1.1em; /* Define um tamanho de fonte menor para o parágrafo */
-  max-width: 600px; /* Define uma largura máxima para o parágrafo */
-  margin: 0 auto; /* Centraliza o parágrafo horizontalmente */
+  font-size: 1.1em;
+  max-width: 600px;
+  margin: 0 auto;
 }
 </style>
