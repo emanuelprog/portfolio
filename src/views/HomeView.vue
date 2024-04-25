@@ -57,6 +57,12 @@ h2 {
   font-weight: 900;
 }
 
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: 3rem; /* Tamanho reduzido do texto para dispositivos móveis */
+  }
+}
+
 p {
   color: black;
 }
