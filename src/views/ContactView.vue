@@ -22,8 +22,40 @@
 
     <v-row class="mb-4 fade-in">
       <v-col cols="12" sm="8" md="6" class="text-center">
-        <div class="d-flex justify-center align-center mt-3" style="height: 100%;">
-            <div style="width: 100%;"><iframe style="border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);" width="400" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=386&amp;height=386&amp;hl=en&amp;q=Campo%20Grande+(My%20Business%20Name)&amp;t=&amp;z=2&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps trackers</a></iframe></div>
+        <div
+          class="d-flex justify-center align-center mt-3"
+          style="height: 100%"
+        >
+          <div style="width: 100%">
+            <iframe
+              v-if="language === 'pt'"
+              style="
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+              "
+              width="400"
+              height="400"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://maps.google.com/maps?width=386&amp;height=386&amp;q=Campo%20Grande+(My%20Business%20Name)&amp;t=&amp;z=2&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;hl=pt"
+              ><a href="https://www.gps.ie/">gps trackers</a></iframe>
+            <iframe
+              v-else
+              style="
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+              "
+              width="400"
+              height="400"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src="https://maps.google.com/maps?width=386&amp;height=386&amp;q=Campo%20Grande+(My%20Business%20Name)&amp;t=&amp;z=2&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;hl=en"
+              ><a href="https://www.gps.ie/">gps trackers</a></iframe>
+          </div>
         </div>
       </v-col>
       <v-col cols="12" sm="8" md="6" class="mt-5">
@@ -63,21 +95,20 @@
             ></v-text-field>
 
             <v-row justify="center">
-              <v-btn class="mr-4" @click="submit" :disabled="dialog" :loading="dialog" color="grey darken-4" style="color: white">
+              <v-btn
+                class="mr-4"
+                @click="submit"
+                :disabled="dialog"
+                :loading="dialog"
+                color="grey darken-4"
+                style="color: white"
+              >
                 {{ language === "pt" ? "ENVIAR" : "SUBMIT" }}
               </v-btn>
-              <v-dialog
-                v-model="dialog"
-                hide-overlay
-                persistent
-                width="300"
-              >
-                <v-card
-                  color="amber darken-1"
-                  dark
-                >
+              <v-dialog v-model="dialog" hide-overlay persistent width="300">
+                <v-card color="amber darken-1" dark>
                   <v-card-text v-if="sucess === false">
-                    {{ language === 'pt' ? 'Enviando...' : 'Sending...' }}
+                    {{ language === "pt" ? "Enviando..." : "Sending..." }}
                     <v-progress-linear
                       indeterminate
                       color="white"
@@ -86,8 +117,14 @@
                   </v-card-text>
 
                   <v-card-text v-else>
-                    {{ language === 'pt' ? 'Email enviado com sucesso!' : 'Email sent successfully!' }}
-                    <v-icon color="green darken-2" class="ml-2 mr-2">mdi-check-circle</v-icon>
+                    {{
+                      language === "pt"
+                        ? "Email enviado com sucesso!"
+                        : "Email sent successfully!"
+                    }}
+                    <v-icon color="green darken-2" class="ml-2 mr-2"
+                      >mdi-check-circle</v-icon
+                    >
                   </v-card-text>
                 </v-card>
               </v-dialog>
@@ -102,11 +139,11 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
+import { eventBus } from "@/event-bus.js";
 
 export default {
   props: ["language"],
   mixins: [validationMixin],
-
   validations: {
     name: { required, maxLength: maxLength(30) },
     email: { required, email },
@@ -121,12 +158,12 @@ export default {
     sucess: false
   }),
   watch: {
-      dialog (val) {
-        if (!val) return
+    dialog(val) {
+      if (!val) return;
 
-        setTimeout(() => (this.dialog = false), 4000)
-      },
+      setTimeout(() => (this.dialog = false), 4000);
     },
+  },
 
   computed: {
     nameErrors() {
@@ -187,18 +224,18 @@ export default {
 
       this.sucess = false;
 
-      if (this.email == '') {
+      if (this.email == "") {
         this.dialog = false;
-        return
+        return;
       }
-      if (this.name == '') {
+      if (this.name == "") {
         this.dialog = false;
-        return
+        return;
       }
 
-      if (this.message == '') {
+      if (this.message == "") {
         this.dialog = false;
-        return
+        return;
       }
       (function () {
         emailjs.init("3uYAFRE_bkzXqlraO");
@@ -206,32 +243,33 @@ export default {
 
       var params = {
         subject: this.name,
-        to: 'emanuelhamachi@hotmail.com',
+        to: "emanuelhamachi@hotmail.com",
         replyto: this.email,
-        message: this.message
-      }
+        message: this.message,
+      };
 
-      var serviceID = "service_bdnsp4r"
+      var serviceID = "service_bdnsp4r";
 
-      var templateID = "template_vr7bd89"
+      var templateID = "template_vr7bd89";
 
-      emailjs.send(serviceID, templateID, params)
-      .then(res => {
-        this.sucess = true
-        setTimeout(() => {
-          this.dialog = false;
-          this.clear()
-        }, 2000);
-      })
-      .catch();
+      emailjs
+        .send(serviceID, templateID, params)
+        .then((res) => {
+          this.sucess = true;
+          setTimeout(() => {
+            this.dialog = false;
+            this.clear();
+          }, 2000);
+        })
+        .catch();
     },
     clear() {
       this.$v.$reset();
       this.name = "";
       this.email = "";
       this.message = "";
-      this.sucess = false
-      this.dialog = false
+      this.sucess = false;
+      this.dialog = false;
     },
     mounted() {
       setTimeout(() => {
