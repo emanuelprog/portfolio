@@ -139,7 +139,6 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
-import { eventBus } from "@/event-bus.js";
 
 export default {
   props: ["language"],
@@ -317,12 +316,5 @@ p {
   font-size: 1.1em;
   max-width: 800px;
   margin: 0 auto;
-}
-
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.12);
-  margin-top: 20px;
 }
 </style>
