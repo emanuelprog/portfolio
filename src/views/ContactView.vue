@@ -23,7 +23,7 @@
     <v-row class="mb-4 fade-in">
       <v-col cols="12" sm="8" md="6" class="text-center">
         <div class="d-flex justify-center align-center mt-3" style="height: 100%;">
-            <div style="width: 100%"><iframe width="386" height="386" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=386&amp;height=386&amp;hl=en&amp;q=Campo%20Grande+(My%20Business%20Name)&amp;t=&amp;z=2&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps trackers</a></iframe></div>
+            <div style="width: 100%;"><iframe style="border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);" width="400" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=386&amp;height=386&amp;hl=en&amp;q=Campo%20Grande+(My%20Business%20Name)&amp;t=&amp;z=2&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps trackers</a></iframe></div>
         </div>
       </v-col>
       <v-col cols="12" sm="8" md="6" class="mt-5">
@@ -279,5 +279,12 @@ p {
   font-size: 1.1em;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+  margin-top: 20px;
 }
 </style>

@@ -10,7 +10,7 @@
 
           <div class="text-center mt-12 fade-in">
             <router-link to="/projects">
-              <v-btn x-large color="amber darken-1" dark> {{ language === 'pt' ? 'PROJETOS' : 'PROJECTS' }} </v-btn>
+              <v-btn x-large color="amber darken-1" dark style="width: 220px; height: 60px; font-size: 18px; font-weight: bolder"> {{ language === 'pt' ? 'PROJETOS' : 'PROJECTS' }} </v-btn>
             </router-link>
           </div>
         </div>
