@@ -23,9 +23,7 @@
     <v-row class="mb-4 fade-in">
       <v-col cols="12" sm="8" md="6" class="text-center">
         <div class="d-flex justify-center align-center" style="height: 100%;">
-          <div style="background-color: #212121; padding: 5px; border-radius: 50%;">
-            <img src="/img/world.svg" style="width: 330px; height: 330px; border-radius: 50%; object-fit: cover;">
-          </div>
+            <div style="width: 100%"><iframe width="386" height="386" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=386&amp;height=386&amp;hl=en&amp;q=Campo%20Grande+(My%20Business%20Name)&amp;t=&amp;z=2&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps trackers</a></iframe></div>
         </div>
         <div class="mb-5">
           <v-icon size="24px" color="grey darken-4">mdi-crosshairs-gps</v-icon><span style="font-weight: bolder; margin-left: 5px">{{ language === "pt" ? "Campo Grande MS - Brasil" : "Campo Grande MS - Brazil" }}</span>
@@ -68,7 +66,7 @@
             ></v-text-field>
 
             <v-row justify="center">
-              <v-btn class="mr-4" @click="submit" :disabled="dialog" :loading="dialog" color="amber darken-1">
+              <v-btn class="mr-4" @click="submit" :disabled="dialog" :loading="dialog" color="grey darken-4" style="color: white">
                 {{ language === "pt" ? "ENVIAR" : "SUBMIT" }}
               </v-btn>
               <v-dialog
@@ -96,9 +94,6 @@
                   </v-card-text>
                 </v-card>
               </v-dialog>
-              <v-btn @click="clear" color="red">
-                {{ language === "pt" ? "LIMPAR" : "CLEAR" }}
-              </v-btn>
             </v-row>
           </form>
         </v-card>
