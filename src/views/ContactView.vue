@@ -37,7 +37,7 @@
             <v-text-field
               v-model="name"
               :error-messages="nameErrors"
-              :counter="10"
+              :counter="30"
               :label="language === 'pt' ? 'Digite seu nome' : 'Enter Your Name'"
               required
               @input="$v.name.$touch()"
@@ -68,9 +68,34 @@
             ></v-text-field>
 
             <v-row justify="center">
-              <v-btn class="mr-4" @click="submit" color="amber darken-1">
+              <v-btn class="mr-4" @click="submit" :disabled="dialog" :loading="dialog" color="amber darken-1">
                 {{ language === "pt" ? "ENVIAR" : "SUBMIT" }}
               </v-btn>
+              <v-dialog
+                v-model="dialog"
+                hide-overlay
+                persistent
+                width="300"
+              >
+                <v-card
+                  color="amber darken-1"
+                  dark
+                >
+                  <v-card-text v-if="sucess === false">
+                    {{ language === 'pt' ? 'Enviando...' : 'Sending...' }}
+                    <v-progress-linear
+                      indeterminate
+                      color="white"
+                      class="mb-0"
+                    ></v-progress-linear>
+                  </v-card-text>
+
+                  <v-card-text v-else>
+                    {{ language === 'pt' ? 'Email enviado com sucesso!' : 'Email sent successfully!' }}
+                    <v-icon color="green darken-2" class="ml-2 mr-2">mdi-check-circle</v-icon>
+                  </v-card-text>
+                </v-card>
+              </v-dialog>
               <v-btn @click="clear" color="red">
                 {{ language === "pt" ? "LIMPAR" : "CLEAR" }}
               </v-btn>
@@ -91,7 +116,7 @@ export default {
   mixins: [validationMixin],
 
   validations: {
-    name: { required, maxLength: maxLength(10) },
+    name: { required, maxLength: maxLength(30) },
     email: { required, email },
     message: { required },
   },
@@ -100,7 +125,16 @@ export default {
     name: "",
     email: "",
     message: "",
+    dialog: false,
+    sucess: false
   }),
+  watch: {
+      dialog (val) {
+        if (!val) return
+
+        setTimeout(() => (this.dialog = false), 4000)
+      },
+    },
 
   computed: {
     nameErrors() {
@@ -109,8 +143,8 @@ export default {
       if (!this.$v.name.maxLength) {
         errors.push(
           this.language === "pt"
-            ? "O nome deve ter no máximo 10 caracteres."
-            : "Name must be at most 10 characters long"
+            ? "O nome deve ter no máximo 30 caracteres."
+            : "Name must be at most 30 characters long"
         );
       }
       if (!this.$v.name.required) {
@@ -156,12 +190,56 @@ export default {
   methods: {
     submit() {
       this.$v.$touch();
+
+      this.dialog = true;
+
+      this.sucess = false;
+
+      if (this.email == '') {
+        this.dialog = false;
+        return
+      }
+      if (this.name == '') {
+        this.dialog = false;
+        return
+      }
+
+      if (this.message == '') {
+        this.dialog = false;
+        return
+      }
+      (function () {
+        emailjs.init("3uYAFRE_bkzXqlraO");
+      })();
+
+      var params = {
+        subject: this.name,
+        to: 'emanuelhamachi@hotmail.com',
+        replyto: this.email,
+        message: this.message
+      }
+
+      var serviceID = "service_bdnsp4r"
+
+      var templateID = "template_vr7bd89"
+
+      emailjs.send(serviceID, templateID, params)
+      .then(res => {
+        this.sucess = true
+        setTimeout(() => {
+          this.dialog = false;
+          this.clear()
+        }, 2000);
+      })
+      .catch();
     },
     clear() {
       this.$v.$reset();
       this.name = "";
       this.email = "";
       this.message = "";
+      this.sucess = false
+      this.dialog = false
     },
     mounted() {
       setTimeout(() => {
