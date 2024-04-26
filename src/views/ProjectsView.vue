@@ -100,8 +100,8 @@ export default {
             'O projeto consiste em um sistema CRUD para cadastro de clientes, desenvolvido com Angular no frontend e Spring Boot no backend. Utilizamos Angular para criar uma interface dinâmica que permite adicionar, editar, e excluir clientes, enquanto o Spring Boot fornece os endpoints para manipulação dos dados no backend. Essa combinação oferece uma solução eficiente e escalável para gerenciar informações de clientes.',
           message:
             'The project consists of a CRUD system for customer registration, developed with Angular on the frontend and Spring Boot on the backend. We used Angular to create a dynamic interface that allows adding, editing, and deleting customers, while Spring Boot provides the endpoints for data manipulation on the backend. This combination offers an efficient and scalable solution for managing customer information.',
-          github: "https://github.com/emanuelprog",
-          href: "https://portalreme.campogrande.ms.gov.br/home",
+          github: "https://github.com/emanuelprog/crud-angular-spring",
+          href: "https://github.com/emanuelprog/crud-angular-spring",
         },
       ],
       mounted() {
