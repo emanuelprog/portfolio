@@ -71,7 +71,7 @@ export default {
       loaded: false,
       cards: [
         {
-          img: "/img/mockup1.png",
+          img: "/img/portfolio-mockup.png",
           titleBr: "Portfólio",
           title: "Portfolio",
           messageBr:
@@ -82,13 +82,24 @@ export default {
           href: "https://portfolio-swart-one-23.vercel.app/",
         },
         {
-          img: "/img/mockup2.png",
+          img: "/img/portal-professor-mockup.png",
           titleBr: "Portal do Professor",
           title: "Teacher Portal",
           messageBr:
             'Explore o meu "Portal do Professor"! Desenvolvido em Angular e Java, este projeto integra-se perfeitamente com APIs RESTful, incorporando uma mistura harmoniosa de sofisticação de front-end e robustez de back-end. Mergulhe para testemunhar como eu preencho a lacuna entre o design elegante e o gerenciamento eficiente de dados, capacitando educadores com ferramentas digitais intuitivas.',
           message:
             'Explore my "Teacher Portal"! Powered by Angular and Java, this project seamlessly integrates with RESTful APIs, embodying a harmonious blend of frontend sophistication and backend robustness. Dive in to witness how I bridge the gap between elegant design and efficient data handling, empowering educators with intuitive digital tools.',
+          github: "https://github.com/emanuelprog",
+          href: "https://portalreme.campogrande.ms.gov.br/home",
+        },
+        {
+          img: "/img/crud-angular-spring-mockup.png",
+          titleBr: "Cadastro de Clientes",
+          title: "Customer Registration",
+          messageBr:
+            'O projeto consiste em um sistema CRUD para cadastro de clientes, desenvolvido com Angular no frontend e Spring Boot no backend. Utilizamos Angular para criar uma interface dinâmica que permite adicionar, editar, e excluir clientes, enquanto o Spring Boot fornece os endpoints para manipulação dos dados no backend. Essa combinação oferece uma solução eficiente e escalável para gerenciar informações de clientes.',
+          message:
+            'The project consists of a CRUD system for customer registration, developed with Angular on the frontend and Spring Boot on the backend. We used Angular to create a dynamic interface that allows adding, editing, and deleting customers, while Spring Boot provides the endpoints for data manipulation on the backend. This combination offers an efficient and scalable solution for managing customer information.',
           github: "https://github.com/emanuelprog",
           href: "https://portalreme.campogrande.ms.gov.br/home",
         },
