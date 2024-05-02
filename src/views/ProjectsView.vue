@@ -103,6 +103,17 @@ export default {
           github: "https://github.com/emanuelprog/crud-angular-spring",
           href: "https://github.com/emanuelprog/crud-angular-spring",
         },
+        {
+          img: "/img/sport-cars-mockup.png",
+          titleBr: "Carros Esportivos",
+          title: "Sport Cars",
+          messageBr:
+            'O projeto é uma aplicação frontend desenvolvida em Vue.js e Vuetify, que funciona em conjunto com um backend simulado usando JSON Server. Ele é projetado para permitir a venda de carros e a publicação de anúncios.',
+          message:
+            'The project is a frontend application developed in Vue.js and Vuetify, which works together with a simulated backend using JSON Server. It is designed to allow you to sell cars and publish advertisements.',
+          github: "https://github.com/emanuelprog/sportcars",
+          href: "https://github.com/emanuelprog/sportcars",
+        },
       ],
       mounted() {
         setTimeout(() => {
